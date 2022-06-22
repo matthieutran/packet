@@ -2,6 +2,19 @@ package packet
 
 import "encoding/binary"
 
+// Write will try to write the data passed
+func (p *Packet) Write(data ...interface{}) (err error) {
+	// Loop through each of the parameters
+	for _, v := range data {
+		err = binary.Write(&p.buf, binary.LittleEndian, v)
+		if err != nil { // Error has occured during writing; return with error
+			return
+		}
+	}
+
+	return
+}
+
 // WriteByte appends a byte to the packet
 func (p *Packet) WriteByte(d byte) (err error) {
 	return binary.Write(&p.buf, binary.LittleEndian, d)
