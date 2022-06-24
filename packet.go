@@ -24,5 +24,5 @@ func (p Packet) Bytes() []byte {
 
 // String implements the `fmt.Stringer` interface for the packet.
 func (p Packet) String() string {
-	return fmt.Sprintf("Packet of size %d: %X", p.Size(), p.buf.String())
+	return fmt.Sprintf("Packet of size %d: % X", p.Size(), p.buf.String())
 }
