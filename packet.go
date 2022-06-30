@@ -9,6 +9,7 @@ import (
 // Packet is an alias of a `bytes.Buffer`
 type Packet struct {
 	buf bytes.Buffer
+	fmt.Stringer
 }
 
 // Size returns the current size of the buffer
